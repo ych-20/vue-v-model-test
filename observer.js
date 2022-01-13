@@ -9,8 +9,8 @@ import Dep from './dep.js'
 export function observe(data) {
     if (typeof data === 'object') {
         for (const key in data) {
-            defineReactive(data, key)
             observe(data[key])
+            defineReactive(data, key,data[key])
         }
     }
 
@@ -23,30 +23,25 @@ function defineReactive(data, key,val) {
         enumerable: true,
         configurable: true,
         get() {
-            console.log('劫持getter', data, key)
+            // console.log('劫持getter', val, key)
+            console.log('劫持getter')
             if (Dep.target) {
+                console.log('添加watcher')
                 dep.addSub(Dep.target)
             }
-            return data[key]
+            return val
         },
+
         set(newVal) {
             if (val === newVal){
                 return
             }
+            debugger
             console.log('劫持setter', data, ',', key, ',', newVal)
+            console.log('dep',dep)
+            val = newVal
             dep.notify()
-            data[key] = newVal
         }
     })
 }
-// }
 
-function Test(){
-    console.log('asdffff1')
-}
-Test.prototype = {
-    get() {
-        console.log('ggggggggggg')
-        return 'wwwwwww';
-    }
-}

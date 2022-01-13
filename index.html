@@ -11,35 +11,37 @@
 </head>
 <body>
 <div id="app">
-    <div>asdf2222222 <div>12344422</div></div>
+    <div>asdf2222222 <div>{{name}}</div></div>
     asdf111111
-    <input type="button" id="btn" value="哈哈哈哈">
+    <div>{{age}}</div>
+    <div><input type="button" id="btn" value="哈哈哈哈"></div>
 </div>
 </body>
-<script type="text/javascript">
-    const appEl = document.querySelector('#app')
-    const btn = document.querySelector('#btn')
-    console.log(appEl.childNodes)
-    const fg = document.createDocumentFragment();
-    [].slice.call(appEl.childNodes,0).forEach(f =>{
-        const node = f.cloneNode(true)
-        fg.appendChild(node)
-    })
-    const clone = fg.cloneNode(true)
-    console.log('clone:',clone)
-    console.log(fg)
-    btn.addEventListener('click',()=>{
-        console.log('ff1222')
-        appEl.childNodes[1].innerText = 'f222222222222'
-        appEl.childNodes[2].textContent = '9999999999999'
-        fg.childNodes[1].innerText = 'f222222221333322'
-        console.log('ff1222',fg)
-        console.log('ff12221111',clone)
-    })
-    let content =  '{{chNode.textContent}}  {{asdf21344}}'.replace(/\{\{(.+?)\}\}/g, (...args) => {
-        console.log('args',args)
-        return 'asdf'
-    });
-    console.log('content',content)
-</script>
+<script type="module" src="./main.js" ></script>
+<!--<script type="text/javascript">-->
+<!--    const appEl = document.querySelector('#app')-->
+<!--    const btn = document.querySelector('#btn')-->
+<!--    console.log(appEl.childNodes)-->
+<!--    const fg = document.createDocumentFragment();-->
+<!--    [].slice.call(appEl.childNodes,0).forEach(f =>{-->
+<!--        const node = f.cloneNode(true)-->
+<!--        fg.appendChild(node)-->
+<!--    })-->
+<!--    const clone = fg.cloneNode(true)-->
+<!--    console.log('clone:',clone)-->
+<!--    console.log(fg)-->
+<!--    btn.addEventListener('click',()=>{-->
+<!--        console.log('ff1222')-->
+<!--        appEl.childNodes[1].innerText = 'f222222222222'-->
+<!--        appEl.childNodes[2].textContent = '9999999999999'-->
+<!--        fg.childNodes[1].innerText = 'f222222221333322'-->
+<!--        console.log('ff1222',fg)-->
+<!--        console.log('ff12221111',clone)-->
+<!--    })-->
+<!--    let content =  '{{chNode.textContent}}  {{asdf21344}}'.replace(/\{\{(.+?)\}\}/g, (...args) => {-->
+<!--        console.log('args',args)-->
+<!--        return 'asdf'-->
+<!--    });-->
+<!--    console.log('content',content)-->
+<!--</script>-->
 </html>

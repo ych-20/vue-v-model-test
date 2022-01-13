@@ -1,4 +1,4 @@
-class Watcher {
+export default  class Watcher {
     /**
      *
      * @param vm
@@ -9,12 +9,14 @@ class Watcher {
         this.vm = vm
         this.exp = exp
         this.cb = cb
-        this.value = this.cb()
+        // this.value = this.cb
     }
     notify(){
+        debugger
         this.runner()
     }
     runner(){
+        debugger
      this.cb()
     }
 }

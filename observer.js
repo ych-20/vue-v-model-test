@@ -36,8 +36,6 @@ function defineReactive(data, key,val) {
             if (val === newVal){
                 return
             }
-            debugger
-            console.log('劫持setter', data, ',', key, ',', newVal)
             console.log('dep',dep)
             val = newVal
             dep.notify()

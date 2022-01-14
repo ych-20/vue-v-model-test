@@ -4,10 +4,10 @@ const vue = new Vue({
     el: document.querySelector("#app"),
     data:{
         name:'namenamenamenamename',
-        age:'1234'
+        age:'1234',
+        input:'input'
     }
 })
-console.log('asdfffff',vue)
 setTimeout(()=>{
     vue.$data.name = 999
 },3000)

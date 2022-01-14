@@ -12,11 +12,9 @@ export default  class Watcher {
         // this.value = this.cb
     }
     notify(){
-        debugger
         this.runner()
     }
     runner(){
-        debugger
      this.cb()
     }
 }
